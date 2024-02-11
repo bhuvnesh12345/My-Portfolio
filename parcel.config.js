@@ -1,10 +1,16 @@
 // parcel.config.js
 
 module.exports = {
-    // Disable SVG optimization
+    // Provide custom SVGO configuration
     defaultConfig: {
       optimizers: {
-        svgo: false,
+        svgo: {
+          // Specify custom SVGO options
+          plugins: [
+            { removeViewBox: false },
+            { removeDimensions: true }, // Prevent removing width and height attributes
+          ],
+        },
       },
     },
   };
